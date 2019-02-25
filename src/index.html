@@ -31,6 +31,27 @@
   <br>
   <button id="off" style='font-size:30px;' class="btn btn-success btn-lg"><strong>OFF</strong></button>
   <br>
+  <br>
+  <input type="radio" name="sw_mode" value="0" checked>通常
+  <input type="radio" name="sw_mode" value="1">立川式
+  <input type="radio" name="sw_mode" value="2">ノン被り式
+  <br>
+  <input type="radio" name="on_mode" value="0" checked>普通
+  <input type="radio" name="on_mode" value="1">戸閉放送ストップ
+  <br>
+  <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
+  <br>
+  <div class="text-info"><strong>
+  <p>再生時間/メロディ合計時間</p>
+  <span id="time"></span></strong></div>
+  <br>
+  <div class="text-">
+  <p id="mv_value" value="">メロディ用ボリューム</p>
+  <input type="range" id="melo_volume" value="50" min="0" max="100">
+  <br>
+  <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
+  <input type="range" id="door_volume" value="50" min="0" max="100">
+  </div>
   <script type="text/javascript" src="melo.js"></script>
 </body>
 </html>
