@@ -1,57 +1,140 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- <script>
-      window.nodeRequire = require;
-      delete window.require;
-      delete window.exports;
-      delete window.module;
-</script> -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- <script>window.$ = window.jQuery = require('jquery');</script> -->
-  <title>Hello World!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- <script>window.$ = window.jQuery = require('jquery');</script> -->
+  <title>自動放送再生システム</title>
 </head>
 
 <body>
-  <audio class="melo" id="melo" preload="auto" src="https://youk720.github.io/melo_work/melo/夏色の時間_1.mp3">
-    <source type="audio/mp3">
-    </audio>
-  <audio id="door" preload="auto" src="https://youk720.github.io/melo_work/melo/tuda/4.mp3">
-    <source type="audio/mp3">
-  </audio>
-  <h1>初めてのElectron</h1>
-  <!-- We are using node <script>document.write(process.versions.node)</script>,
-  Chrome <script>document.write(process.versions.chrome)</script>,
-  and Electron <script>document.write(process.versions.electron)</script>. -->
 
-  <p>自動放送再生システム</p>
+<div class="main">
+<!-- タブ別  -->
+  <ul class="nav nav-tabs">
+    <li><a href="#AutoSound" data-toggle="tab">自動放送設定</a></li>
+    <li class="active"><a href="#StartBell" data-toggle="tab">発車ベル設定</a></li>
+  </ul>
+
   <br>
-  <button id="on" style='font-size:38px;' class="btn btn-danger btn-lg  text-center"><strong> ON </strong></button>
   <br>
-  <button id="off" style='font-size:30px;' class="btn btn-success btn-lg"><strong>OFF</strong></button>
-  <br>
-  <br>
-  <input type="radio" name="sw_mode" value="0" checked>通常
-  <input type="radio" name="sw_mode" value="1">立川式
-  <input type="radio" name="sw_mode" value="2">ノン被り式
-  <br>
-  <input type="radio" name="on_mode" value="0" checked>普通
-  <input type="radio" name="on_mode" value="1">戸閉放送ストップ
-  <br>
-  <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
-  <br>
-  <div class="text-info"><strong>
-  <p>再生時間/メロディ合計時間</p>
-  <span id="time"></span></strong></div>
-  <br>
-  <div class="text-">
-  <p id="mv_value" value="">メロディ用ボリューム</p>
-  <input type="range" id="melo_volume" value="50" min="0" max="100">
-  <br>
-  <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
-  <input type="range" id="door_volume" value="50" min="0" max="100">
+
+  <!-- タブ内 -->
+  <div class="tab-content">
+    <div class="tab-pane" id="AutoSound">
+      <p>製作中</p>
+      <p>種別</p>
+      <select class="kind">
+      <option value="普通"></option>
+      <option value="各駅停車"></option>
+      <option value="快速"></option>
+      <option value="急行"></option>
+      <option value="特急"></option>
+      <option value="団体"></option>
+      <option value="回送"></option>
+      <option value="貨物"></option>
+      </select>
+      <p>愛称</p>
+      <select class="name">
+        <option value="あかぎ"></option>
+        <option value="スワローあかぎ"></option>
+        <option value="ホームライナー"></option>
+        <option value="成田エクスプレス"></option>
+        <option value="おはようライナー新宿"></option>
+        <option value="踊り子"></option>
+        <option value="スーパービュー踊り子"></option>
+        <option value="あずさ"></option>
+        <option value="かいじ"></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+      <p>行き先</p>
+      <select class="destination">
+        <option value="深谷"></option>
+        <option value="籠原"></option>
+        <option value="熊谷"></option>
+        <option value="高崎"></option>
+        <option value="新前橋"></option>
+        <option value="前橋"></option>
+        <option value="水上"></option>
+        <option value="桐生"></option>
+        <option value="横川"></option>
+        <option value="越後湯沢"></option>
+        <option value="長岡"></option>
+        <option value="新潟"></option>
+
+        <option value="鴻巣"></option>
+        <option value="桶川"></option>
+        <option value="北本"></option>
+        <option value="上尾"></option>
+        <option value="宮原"></option>
+
+        <option value="大宮"></option>
+        <option value="上野"></option>
+        <option value="東京"></option>
+        <option value="品川"></option＞
+        <option value="新宿"></option>
+        <option value="渋谷"></option>
+        <option value="池袋"></option>
+        <option value="大崎"></option>
+
+        <option value="横浜"></option>
+        <option value="大船"></option>
+        <option value="平塚"></option>
+        <option value="国府津"></option>
+        <option value="小田原"></option>
+        <option value="熱海"></option>
+        <option value="沼津"></option>
+        <option value="三島"></option>
+
+        <option value="成田"></option>
+
+      </select>
+    </div>
+
+    <div class="tab-pane active" id="StartBell">
+      <audio class="melo" id="melo" preload="auto" src="https://youk720.github.io/melo_work/melo/夏色の時間_1.mp3">
+        <source type="audio/mp3">
+        </audio>
+      <audio id="door" preload="auto" src="https://youk720.github.io/melo_work/melo/tuda/4.mp3">
+        <source type="audio/mp3">
+      </audio>
+
+      <button id="on" style='font-size:38px;' class="btn btn-danger btn-lg  text-center"><strong> ON </strong></button>
+      <br>
+      <button id="off" style='font-size:30px;' class="btn btn-success btn-lg"><strong>OFF</strong></button>
+      <br>
+      <br>
+      <input type="radio" name="sw_mode" value="0" checked>通常
+      <input type="radio" name="sw_mode" value="1">立川式
+      <input type="radio" name="sw_mode" value="2">ノン被り式
+      <br>
+      <input type="radio" name="on_mode" value="0" checked>普通
+      <input type="radio" name="on_mode" value="1">戸閉放送ストップ
+      <br>
+      <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
+      <br>
+      <div class="text-info"><strong>
+      <p>再生時間/メロディ合計時間</p>
+      <span id="time"></span></strong></div>
+      <br>
+      <div class="text-">
+      <p id="mv_value" value="">メロディ用ボリューム</p>
+      <input type="range" id="melo_volume" value="50" min="0" max="100">
+      <br>
+      <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
+      <input type="range" id="door_volume" value="50" min="0" max="100">
+      </div>
+    </div>
+
   </div>
+</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="melo.js"></script>
 </body>
 </html>
