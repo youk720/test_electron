@@ -22,6 +22,7 @@
 
   <!-- タブ内 -->
   <div class="tab-content">
+    <!-- 自動放送関連タブ -->
     <div class="tab-pane" id="AutoSound">
       <p>製作中</p>
       <p>種別</p>
@@ -93,7 +94,7 @@
 
       </select>
     </div>
-
+<!-- 発車メロディタブ -->
     <div class="tab-pane active" id="StartBell">
       <audio class="melo" id="melo" preload="auto" src="https://youk720.github.io/melo_work/melo/夏色の時間_1.mp3">
         <source type="audio/mp3">
@@ -117,7 +118,8 @@
       <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
       <br>
       <div class="text-info"><strong>
-      <p>再生時間/メロディ合計時間</p>
+      <span>再生時間/メロディ合計時間</span>
+      <br>
       <span id="time"></span></strong></div>
       <br>
       <div class="text-">
@@ -126,6 +128,9 @@
       <br>
       <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
       <input type="range" id="door_volume" value="50" min="0" max="100">
+      <br>
+      <p id="smoking_value" value="">禁煙音源ボリューム</p>
+      <input type="range" id="smoking_volume" value="50" min="0" max="100">
       </div>
     </div>
 

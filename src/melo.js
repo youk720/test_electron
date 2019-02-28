@@ -11,6 +11,8 @@ door.get(0).volume = 0.5; //ボリューム初期設定値;
 $("#mv_value").html("メロディ用ボリューム" + " 現在:" + Math.floor(melo.get(0).volume * 100));
 //ボリューム数値,元値を100倍して出力
 $("#dov_value").html("ドア閉め放送用ボリューム" + " 現在:" + Math.floor(door.get(0).volume * 100));
+// ボリューム数値,元値を100倍して出力
+$("#smoking_value").html("禁煙音源ボリューム" + " 現在:" + Math.floor(sm_vi.volume * 100));
 
 function off_1(){
   if(typeof(door.get(0).currentTime) != 'undefined'){
@@ -125,6 +127,11 @@ function smoking(){
 $('#smoking').on('click', function(f){
   smoking();
 })
+$('body').on("keydown", function(k){
+  if(k.keyCode === 88){
+      smoking();
+    }
+});
 
 $('#on').on('click', function(e) {
   //on関数召喚
@@ -151,10 +158,6 @@ $('body').on("keydown", function (m){
 
 //メロディ音源ボリューム制御
 let volume = $("#melo_volume");
-
-//ドア閉放送ボリューム制御
-let volume_door = $("#door_volume");
-
 $(volume).change(function() {
 
   let volumeValue = (volume.val().length == 1) ? '0.0' + volume.val() : '0.' + volume.val();
@@ -169,10 +172,8 @@ $(volume).change(function() {
 
   // $(volume).val(volumeValue);
 });
-
 //ドア閉放送ボリューム制御
-
-
+let volume_door = $("#door_volume");
 $(volume_door).change(function() {
   let volumeValue = (volume_door.val().length == 1) ? '0.0' + volume_door.val() : '0.' + volume_door.val();
 
@@ -185,3 +186,16 @@ $(volume_door).change(function() {
   // $(volume_door).val(volumeValue);
       }
   });
+// 禁煙放送ボリューム制御
+let volume_smoking = $("#smoking_volume");
+$(volume_smoking).change(function(){
+  let volumeValue = (volume_smoking.val().length === 1) ? '0.0' + volume_smoking.val() : '0.' + volume_smoking.val();
+  if(volumeValue === "0.100"){
+    sm_vi.volume = 1;
+    $("#smoking_value").html("禁煙音源ボリューム" + " 現在:" + 100);
+  }else{
+    $("#smoking_value").html("禁煙音源ボリューム" + " 現在:" + ((volumeValue) * 1000)/10);
+    //ボリューム数値,元値を100倍して出力
+    sm_vi.volume = volumeValue;
+  }
+});
