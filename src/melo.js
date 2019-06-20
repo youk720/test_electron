@@ -1,7 +1,7 @@
 'use strict';
 
 // 変数にhtml内のidを定義
-let melo = new Audio("https://youk720.github.io/melo_work/melo/電車ごっこ ver D_1.mp3");
+let melo = new Audio("https://youk720.github.io/melo_work/melo/summer%20night_v1.mp3");
 $("#melo_select").change(function(){
 melo.src = $("#melo_select").val();
 });
