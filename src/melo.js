@@ -11,7 +11,7 @@ melo.src = $("#melo_select").val();
 let bansen = new Audio("./sound/1bansen.mp3");
 $("#bansen").change(function(){
   bansen.src = $("#bansen").val();
-})
+});
 let dor_cls = new Audio("./sound/door_close.mp3");
 
 // 禁煙放送用オーディオ起動
@@ -207,8 +207,8 @@ $(volume_door).change(function() {
   let volumeValue = (volume_door.val().length == 1) ? '0.0' + volume_door.val() : '0.' + volume_door.val();
 
   if (volumeValue === "0.100") {
-    bansen.volume = 0.5;
-    dor_cls.volume = 0.5;
+    bansen.volume = 1;
+    dor_cls.volume = 1;
     $("#dov_value").html("ドア閉め放送用ボリューム" + " 現在:" + 100);
   }else{
   $("#dov_value").html("ドア閉め放送用ボリューム" + " 現在:" +((volumeValue) * 1000)/10);//ボリューム数値,元値を100倍して出力
