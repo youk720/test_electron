@@ -164,14 +164,11 @@
           <option value="./melo/風と共にV2.mp3">風と共にV2</option>
           <option value="./melo/木々の目覚めV1.mp3">木々の目覚めV1</option>
           <option value="./melo/木々の目覚めV2.mp3">木々の目覚めV2</option>
-          <option value="./melo/"></option>
+          <option value="./melo/夏色の時間 _A.mp3">夏色の時間(A自作)</option>
+          <option value="./melo/夏色の時間 _G.mp3">夏色の時間(G自作)</option>
+          <option value="./melo/Twinkle Twinkle_v1_nonrilz.mp3">Twinkle Twinkle V1</option>
+          <option value="./melo/Twinkle Twinkle_v2_nonrilz.mp3">Twinkle Twinkle V2</option>
       </select></p>
-      <p id="melo_title">メロディ音源手動入力</p>
-      <br>
-      <textarea id="melo_input" rows='2'>メロディ音源手動入力</textarea>
-      <br>
-      <button id="custam_sw" style='font-size:10px;' class="btn btn btn-primary text-center"><strong> 決定</strong></button>
-      <br>
       <p>戸閉音源 <a href="http://text-to-speech.imtranslator.net/speech.asp?dir=ja">※自動音声の使用元</a><br>
       <select id="bansen">
         <option value="./sound/1bansen.mp3">1番線</option>
@@ -199,6 +196,16 @@
         <option value="https://youk720.github.io/melo_work/melo/saki/3_1.mp3">saki;3番線</option>
         <option value="https://youk720.github.io/melo_work/melo/saki/4_1.mp3">saki;4番線</option>
       </select>
+      <!-- 音源自動選択部分 -->
+      <p id="melo_title">メロディ音源手動入力</p>
+      <textarea id="melo_input" size='20'></textarea>
+      <br>
+      <p id="door_title">ドア閉音源手動入力</p>
+      <textarea id="door_input" size="20"></textarea>
+      <br>
+      <button id="custam_sw" style='font-size:10px;' class="btn btn btn-primary text-center"><strong> 決定</strong></button>
+      <br>
+
       <br>
       <!-- <audio class="melo" id="melo" preload="auto">
         <source type="audio/mp3">

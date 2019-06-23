@@ -1,26 +1,42 @@
 'use strict';
 
-// 変数にhtml内のidを定義
+// 初期定義
 let melo = new Audio("https://youk720.github.io/melo_work/melo/summer%20night_v1.mp3");
+
+// メロディ(セレクトタブからの選曲時の処理)
 $("#melo_select").change(function(){
   melo.src = $("#melo_select").val();
   console.log("now melody: " + melo.src);
 });
-
-$('#custam_sw').on('click', function(f){
-  melo.src = $("#melo_input").val();
-  console.log("now melody: " + melo.src);
-});
-
-
-// let door = $('#door');
-
-// 番線任意選択
+// ドア閉処理(セレクトタブ選択時)
 let bansen = new Audio("./sound/1bansen.mp3");
 $("#bansen").change(function(){
   bansen.src = $("#bansen").val();
 });
+// 自動音声つぎはぎ用の別音声
 let dor_cls = new Audio("./sound/door_close.mp3");
+
+// メロディ&ドア閉処理(手動入力時の処理)
+$('#custam_sw').on('click', function(){
+  // 手動入力のところが未入力の時の処理
+  if ($("#melo_input").val() != "") {
+    // セレクトタブで選択されているものを入れる
+    melo.src = $("#melo_input").val();
+  }else{
+    // 手動入力されたものを入れる
+    melo.src = $("#melo_select").val();
+  }
+  // ドア閉も上記と同様の処理
+  if ($("#door_input").val() != "") {
+    bansen.src = $("#door_input").val();
+  }else{
+    bansen.src = $("#bansen").val();
+  }
+  // リンク切り替えのデバッグ処理
+  console.log("now melody: " + melo.src);
+  console.log("now bansen: " + bansen.src);
+});
+
 
 // 禁煙放送用オーディオ起動
 let sm_vi = new Audio("./禁煙voicetext_men.mp3");
@@ -45,7 +61,7 @@ function off_1(){
   }
   bansen.play();
   $(bansen).on('ended', function(){
-    if (!bansen.src.startsWith('https://youk720.github.io/melo_work')) {
+    if (bansen.src.endsWith("bansen.mp3")) {
       dor_cls.play();
     }
   });
@@ -161,6 +177,16 @@ function smoking(){
   // $("#off").removeClass().addClass("btn btn-success btn-lg");
   }
 }
+
+setInterval(function(){
+  smoking();
+  $("#smoking").removeClass().addClass("btn btn btn-default");
+  setTimeout(smok_end, 7000);
+  function smok_end(){
+    $("#smoking").removeClass().addClass("btn btn btn-primary");
+  }
+}, 60000);
+
 $('#smoking').on('click', function(f){
   smoking();
 });
