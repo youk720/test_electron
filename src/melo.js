@@ -113,19 +113,13 @@ function off(){
     }
     // 別モード
     else if($('[name=sw_mode][value=2]').prop('checked')){
-      $("#melo").on("ended", function(){
-
-      sm_vi.pause();
-      setTimeout(off_1, 1780);
-      console.log("melody's loop is " + melo.loop);
-      if(typeof(melo.currentTime) != 'undefined'){
-        setTimeout(off_1, 1780);
-      }
+      if(typeof($("#melo").currentTime) != 'undefined'){
+      bansen.currentTime = 0;
+    }
       melo.loop = false;
-    // if(melo.loop == false && melo.currentTime == 'undefined'){
-    //   sm_vi.pause();
-    //   door.play();
-    //     };
+      $(melo).on("ended", function(){
+        setTimeout(off_1, 500);
+        console.log("melody's loop is " + melo.loop);
       });
     }
   });
