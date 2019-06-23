@@ -3,8 +3,16 @@
 // 変数にhtml内のidを定義
 let melo = new Audio("https://youk720.github.io/melo_work/melo/summer%20night_v1.mp3");
 $("#melo_select").change(function(){
-melo.src = $("#melo_select").val();
+  melo.src = $("#melo_select").val();
+  console.log("now melody: " + melo.src);
 });
+
+$('#custam_sw').on('click', function(f){
+  melo.src = $("#melo_input").val();
+  console.log("now melody: " + melo.src);
+});
+
+
 // let door = $('#door');
 
 // 番線任意選択
