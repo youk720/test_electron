@@ -15,7 +15,6 @@
   <ul class="nav nav-tabs">
     <li><a href="#AutoSound" data-toggle="tab">自動放送設定</a></li>
     <li class="active"><a href="#StartBell" data-toggle="tab">発車ベル設定</a></li>
-    <li><a href="#ui" data-toggle="tab">電光掲示板風</a></li>
   </ul>
 
   <br>
@@ -26,257 +25,259 @@
     <!-- 自動放送関連タブ -->
     <div class="tab-pane" id="AutoSound">
       <p>製作中</p>
-      <!-- <p>種別</p>
-      <select id="kind">
-      <option value="普通"></option>
-      <option value="各駅停車"></option>
-      <option value="快速"></option>
-      <option value="急行"></option>
-      <option value="特急"></option>
-      <option value="団体"></option>
-      <option value="回送"></option>
-      <option value="貨物"></option>
-      </select>
-      <p>愛称</p>
-      <select id="name">
-        <option value="あかぎ"></option>
-        <option value="スワローあかぎ"></option>
-        <option value="ホームライナー"></option>
-        <option value="成田エクスプレス"></option>
-        <option value="おはようライナー新宿"></option>
-        <option value="踊り子"></option>
-        <option value="スーパービュー踊り子"></option>
-        <option value="あずさ"></option>
-        <option value="かいじ"></option>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-      </select>
-      <p>行き先</p>
-      <select id="destination">
-        <option value="深谷"></option>
-        <option value="籠原"></option>
-        <option value="熊谷"></option>
-        <option value="高崎"></option>
-        <option value="新前橋"></option>
-        <option value="前橋"></option>
-        <option value="水上"></option>
-        <option value="桐生"></option>
-        <option value="横川"></option>
-        <option value="越後湯沢"></option>
-        <option value="長岡"></option>
-        <option value="新潟"></option>
-
-        <option value="鴻巣"></option>
-        <option value="桶川"></option>
-        <option value="北本"></option>
-        <option value="上尾"></option>
-        <option value="宮原"></option>
-
-        <option value="大宮"></option>
-        <option value="上野"></option>
-        <option value="東京"></option>
-        <option value="品川"></option>
-        <option value="新宿"></option>
-        <option value="渋谷"></option>
-        <option value="池袋"></option>
-        <option value="大崎"></option>
-
-        <option value="横浜"></option>
-        <option value="大船"></option>
-        <option value="平塚"></option>
-        <option value="国府津"></option>
-        <option value="小田原"></option>
-        <option value="熱海"></option>
-        <option value="沼津"></option>
-        <option value="三島"></option>
-
-        <option value="成田"></option>
-
-      </select>
+      
+      <table>
+        <tr>
+          <td>
+              <p>種別</p>
+              <select id="kind">
+              <option value="./sound/futsu.mp3">普通</option>
+              <option value="各駅停車">各駅停車</option>
+              <option value="快速">快速</option>
+              <option value="急行">急行</option>
+              <option value="特急">特急</option>
+              <option value="団体">団体</option>
+              <option value="回送">回送</option>
+              <option value="貨物">貨物</option>
+              </select>
+              <p>愛称</p>
+              <select id="name">
+                <option value="">あかぎ</option>
+                <option value="">スワローあかぎ</option>
+                <option value="">ホームライナー</option>
+                <option value="">成田エクスプレス</option>
+                <option value="">おはようライナー新宿</option>
+                <option value="">踊り子</option>
+                <option value="">スーパービュー踊り子</option>
+                <option value="">あずさ</option>
+                <option value="">かいじ</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+              <p>行き先</p>
+              <select id="destination">
+                <option value="0">深谷</option>
+                <option value="1">籠原</option>
+                <option value="">熊谷</option>
+                <option value="2">高崎</option>
+                <option value="14">新前橋</option>
+                <option value="">前橋</option>
+                <option value="">水上</option>
+                <option value="">桐生</option>
+                <option value="">横川</option>
+                <option value="">越後湯沢</option>
+                <option value="">長岡</option>
+                <option value="">新潟</option>
+                <option value="">鴻巣</option>
+                <option value="">桶川</option>
+                <option value="">北本</option>
+                <option value="3">上尾</option>
+                <option value="">宮原</option>
+        
+                <option value="4">野崎</option>
+                <option value="5">小金井</option>
+                <option value="6">宇都宮</option>
+                <option value="7">矢板</option>
+                <option value="8">白岡</option>
+        
+                <option value="9">大宮</option>
+                <option value="10">上野</option>
+                <option value="11">東京</option>
+                <option value="15">品川</option>
+                <option value="16">新宿</option>
+                <option value="17">渋谷</option>
+                <option value="18">池袋</option>
+                <option value="19">大崎</option>
+        
+                <option value="">横浜</option>
+                <option value="">大船</option>
+                <option value="">平塚</option>
+                <option value="12">国府津</option>
+                <option value="13">小田原</option>
+                <option value="">熱海</option>
+                <option value="">沼津</option>
+                <option value="">三島</option>
+        
+                <option value="">成田</option>
+        
+              </select>
+          </td>
+          <td>
+          <span id="playlist_out"></span>
+          </td>
+        </tr>
+      </table>
 
       <br>
-      <button id="info_start" class="btn btn-success btn-lg"><strong>予告再生</strong></button>
-      <button id="arriv_start" class="btn btn-danger btn-lg"><strong>接近再生</strong></button>
-      <script type="text/javascript" src="atos_2.js"></script> -->
+      <button id="info" class="btn btn-success btn-lg"><strong>予告</strong></button>
+      <button id="arriv" class="btn btn-danger btn-lg"><strong>接近</strong></button>
+      <button id="atos_start" class="btn btn-primary btn-lg"><strong>再生</strong></button>
+      <script type="text/javascript" src="atos_2.js"></script>
     </div>
 <!-- 発車メロディタブ -->
 
-  <div class="tab-pane active center-block" id="StartBell">
-    <div class="container">
-      <!-- <audio class="melo" id="melo" preload="auto" src="/Users/yuki_tajima/Desktop/HANDS-%E5%A4%A7%E3%81%8D%E3%81%AA%E6%89%8B%E3%81%8B%E3%82%89%E5%B0%8F%E3%81%95%E3%81%AA%E6%89%8B%E3%81%B8-verA[%E9%AB%98%E4%BD%8E%E9%9F%B3mix].mp3"> -->
-      <!-- ゆくも ドア閉め 生成コード: <NUMK VAL="1" COUNTER="''バン/セ'ン/" MODE="AaE">。 -->
-      <p>メロディ選択※自作以外のテイチク音源⇨<a href="https://youtu.be/0W4gbZSbaJU">harmony Sakura*
-さんのテイチク再現音源</a>より
-      <br>
-        <select id="melo_select">
-          <!-- <option value="https://youk720.github.io/melo_work/melo/summer%20night_v1.mp3">summer night V1(自作版)</option> -->
-          <option value="https://youk720.github.io/melo_work/melo/summer%20night%20v1_Ab.mp3">summer night V1(自作) Ab</option>
-          <option value="https://youk720.github.io/melo_work/melo/summer%20night%20v1_A.mp3">summer night V1(自作) A</option>
-          <option value="https://youk720.github.io/melo_work/melo/ムーンリバー_ショート.mp3">ムーンリバー_ショート</option>
-          <option value="https://youk720.github.io/melo_work/melo/Sunrise.mp3">Sunrise(実録)</option>
-          <option value="https://youk720.github.io/melo_work/melo/We Love Marines_1.mp3">We Love Marines</option>
-          <option value="https://youk720.github.io/melo_work/melo/JR-SH3-1.mp3">JR-SH3-1</option>
-          <option value="https://youk720.github.io/melo_work/melo/熊谷市歌_verA(実録).mp3">熊谷市歌A(実録)</option>
-          <option value="https://youk720.github.io/melo_work/melo/おねぎのマーチ.mp3">深谷</option>
-          <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃.mp3">すみれの花咲く頃</option>
-          <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_long.mp3">すみれの花咲く頃_long</option>
-          <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_矢板ショートver.mp3">すみれの花咲く頃_矢板ショートver</option>
-          <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_矢板ver.mp3">すみれの花咲く頃_矢板ver</option>
-          <option value="https://youk720.github.io/melo_work/melo/牧場の朝ショート.mp3">牧場の朝ショート</option>
-          <!-- <option value="https://youk720.github.io/melo_work/melo/"></option> -->
-          <option value="./melo/cappuccino.mp3">cappuccino</option>
-          <option value="./melo/dance on.mp3">dance on</option>
-          <option value="./melo/farawell.mp3">farawell</option>
-          <option value="./melo/Summer night V1.mp3">Summer night V1</option>
-          <option value="./melo/Summer night V2.mp3">Summer night V2</option>
-          <option value="./melo/あざみ野V1.mp3">あざみ野V1</option>
-          <option value="./melo/あざみ野V2.mp3">あざみ野V2</option>
-          <option value="./melo/くるみ遊び.mp3">くるみ遊び</option>
-          <option value="./melo/すすきの高原V1.mp3">すすきの高原V1</option>
-          <option value="./melo/すすきの高原V2.mp3">すすきの高原V2</option>
-          <option value="./melo/ベルの響き.mp3">ベルの響き</option>
-          <option value="./melo/ホリディV1.mp3">ホリディV1</option>
-          <option value="./melo/ホリディV2.mp3">ホリディV2</option>
-          <option value="./melo/遠い青空V1.mp3">遠い青空V1</option>
-          <option value="./melo/遠い青空V2.mp3">遠い青空V2</option>
-          <option value="./melo/夏色の時間.mp3">夏色の時間</option>
-          <option value="./melo/花のほころびV1.mp3">花のほころびV1</option>
-          <option value="./melo/花のほころびV2.mp3">花のほころびV2</option>
-          <option value="./melo/海岸通りV1.mp3">海岸通りV1</option>
-          <option value="./melo/海岸通りV2.mp3">海岸通りV2</option>
-          <option value="./melo/九月の風V1.mp3">九月の風V1</option>
-          <option value="./melo/九月の風V2.mp3">九月の風V2</option>
-          <option value="./melo/古いオルゴール.mp3">古いオルゴール</option>
-          <option value="./melo/公園の楓.mp3">公園の楓</option>
-          <option value="./melo/公園通り.mp3">公園通り</option>
-          <option value="./melo/秋桜V1.mp3">秋桜V1</option>
-          <option value="./melo/秋桜V2.mp3">秋桜V2</option>
-          <option value="./melo/春待ち風V1.mp3">春待ち風V1</option>
-          <option value="./melo/春待ち風V2.mp3">春待ち風V</option>
-          <option value="./melo/小川のせせらぎV1.mp3">小川のせせらぎV1</option>
-          <option value="./melo/小川のせせらぎV2.mp3">小川のせせらぎV2</option>
-          <option value="./melo/新たな季節.mp3">新たな季節</option>
-          <option value="./melo/雪解け間近V1.mp3">雪解け間近V1</option>
-          <option value="./melo/雪解け間近V2.mp3">雪解け間近V2</option>
-          <option value="./melo/線路の彼方.mp3">線路の彼方</option>
-          <option value="./melo/風と共にV1.mp3">風と共にV1</option>
-          <option value="./melo/風と共にV2.mp3">風と共にV2</option>
-          <option value="./melo/木々の目覚めV1.mp3">木々の目覚めV1</option>
-          <option value="./melo/木々の目覚めV2.mp3">木々の目覚めV2</option>
-          <option value="./melo/夏色の時間 _A.mp3">夏色の時間(A自作)</option>
-          <option value="./melo/夏色の時間 _G.mp3">夏色の時間(G自作)</option>
-          <option value="./melo/Twinkle Twinkle_v1_nonrilz.mp3">Twinkle Twinkle V1</option>
-          <option value="./melo/Twinkle Twinkle_v2_nonrilz.mp3">Twinkle Twinkle V2</option>
-      </select></p>
-      <p>戸閉音源 <a href="http://text-to-speech.imtranslator.net/speech.asp?dir=ja">※自動音声の使用元</a><br>
-      <select id="bansen">
-        <option value="./sound/1bansen.mp3">1番線</option>
-        <option value="./sound/2bansen.mp3">2番線</option>
-        <option value="./sound/3bansen.mp3">3番線</option>
-        <option value="./sound/4bansen.mp3">4番線</option>
-        <option value="./sound/5bansen.mp3">5番線</option>
-        <option value="./sound/6bansen.mp3">6番線</option>
-        <option value="./sound/7bansen.mp3">7番線</option>
-        <option value="./sound/8bansen.mp3">8番線</option>
-        <option value="./sound/9bansen.mp3">9番線</option>
-        <option value="./sound/10bansen.mp3">10番線</option>
-        <option value="https://youk720.github.io/melo_work/sound/%E3%83%88%E3%82%99%E3%82%A2%E3%81%8B%E3%82%99%E9%96%89%E3%81%BE%E3%82%8A%E3%81%BE%E3%81%99%E6%89%8B%E8%8D%B7%E7%89%A9.mp3">ドアが閉まります手荷物</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/1_1_1.mp3">tuda1番線</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/2.mp3">tuda2番線(実録)</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/3_1.mp3">tuda3番線(実録)</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/4.mp3">tuda4番線(実録)</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/4_1.mp3">tuda4番線(CD音源)</option>
-        <option value="https://youk720.github.io/melo_work/melo/tuda/5_1.mp3">tuda5番線(実録)</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/1.mp3">saki;1番線</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/1_jvc.mp3">saki;1番線_jvc</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/2_jvc.mp3">saki;2番線_jvc</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/2.mp3">saki;2番線(ユニぺ小丸)</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/2_voss.mp3">saki;2番線(小VOSS)</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/3_1.mp3">saki;3番線</option>
-        <option value="https://youk720.github.io/melo_work/melo/saki/4_1.mp3">saki;4番線</option>
-      </select>
-      <!-- 音源自動選択部分 -->
-      <p id="melo_title">メロディ音源手動入力</p>
-      <textarea id="melo_input" size='20'></textarea>
-      <br>
-      <p id="door_title">ドア閉音源手動入力</p>
-      <textarea id="door_input" size="20"></textarea>
-      <br>
-      <button id="custam_sw" style='font-size:10px;' class="btn btn btn-primary text-center"><strong> 決定</strong></button>
-      <br>
+    <div class="tab-pane active center-block" id="StartBell">
+      <div class="container-fluid">
+        <!-- <audio class="melo" id="melo" preload="auto" src="/Users/yuki_tajima/Desktop/HANDS-%E5%A4%A7%E3%81%8D%E3%81%AA%E6%89%8B%E3%81%8B%E3%82%89%E5%B0%8F%E3%81%95%E3%81%AA%E6%89%8B%E3%81%B8-verA[%E9%AB%98%E4%BD%8E%E9%9F%B3mix].mp3"> -->
+        <!-- ゆくも ドア閉め 生成コード: <NUMK VAL="1" COUNTER="''バン/セ'ン/" MODE="AaE">。 -->
+        <table>
+          <tr>
+          <td>
+            <p>メロディ選択<br>※自作以外のテイチク音源⇨<br><a href="https://youtu.be/0W4gbZSbaJU">harmony Sakura*
+      さんのテイチク再現音源</a>より
+            <br>
+              <select id="melo_select">
+                <option value="https://youk720.github.io/melo_work/melo/summer%20night_v1.mp3">summer night V1(自作版)</option>
+                <option value="https://youk720.github.io/melo_work/melo/summer%20night%20v1_Ab.mp3">summer night V1(自作) Ab</option>
+                <option value="https://youk720.github.io/melo_work/melo/summer%20night%20v1_A.mp3">summer night V1(自作) A</option>
+                <option value="https://youk720.github.io/melo_work/melo/ムーンリバー_ショート.mp3">ムーンリバー_ショート</option>
+                <option value="https://youk720.github.io/melo_work/melo/Sunrise.mp3">Sunrise(実録)</option>
+                <option value="https://youk720.github.io/melo_work/melo/We Love Marines_1.mp3">We Love Marines</option>
+                <option value="https://youk720.github.io/melo_work/melo/JR-SH3-1.mp3">JR-SH3-1</option>
+                <option value="https://youk720.github.io/melo_work/melo/熊谷市歌_verA(実録).mp3">熊谷市歌A(実録)</option>
+                <option value="https://youk720.github.io/melo_work/melo/おねぎのマーチ.mp3">深谷</option>
+                <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃.mp3">すみれの花咲く頃</option>
+                <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_long.mp3">すみれの花咲く頃_long</option>
+                <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_矢板ショートver.mp3">すみれの花咲く頃_矢板ショートver</option>
+                <option value="https://youk720.github.io/melo_work/melo/すみれの花咲く頃_矢板ver.mp3">すみれの花咲く頃_矢板ver</option>
+                <option value="https://youk720.github.io/melo_work/melo/牧場の朝ショート.mp3">牧場の朝ショート</option>
+                <!-- <option value="https://youk720.github.io/melo_work/melo/"></option> -->
+                <option value="./melo/cappuccino.mp3">cappuccino</option>
+                <option value="./melo/dance on.mp3">dance on</option>
+                <option value="./melo/farawell.mp3">farawell</option>
+                <option value="./melo/Summer night V1.mp3">Summer night V1</option>
+                <option value="./melo/Summer night V2.mp3">Summer night V2</option>
+                <option value="./melo/あざみ野V1.mp3">あざみ野V1</option>
+                <option value="./melo/あざみ野V2.mp3">あざみ野V2</option>
+                <option value="./melo/くるみ遊び.mp3">くるみ遊び</option>
+                <option value="./melo/すすきの高原V1.mp3">すすきの高原V1</option>
+                <option value="./melo/すすきの高原V2.mp3">すすきの高原V2</option>
+                <option value="./melo/ベルの響き.mp3">ベルの響き</option>
+                <option value="./melo/ホリディV1.mp3">ホリディV1</option>
+                <option value="./melo/ホリディV2.mp3">ホリディV2</option>
+                <option value="./melo/遠い青空V1.mp3">遠い青空V1</option>
+                <option value="./melo/遠い青空V2.mp3">遠い青空V2</option>
+                <option value="./melo/夏色の時間.mp3">夏色の時間</option>
+                <option value="./melo/花のほころびV1.mp3">花のほころびV1</option>
+                <option value="./melo/花のほころびV2.mp3">花のほころびV2</option>
+                <option value="./melo/海岸通りV1.mp3">海岸通りV1</option>
+                <option value="./melo/海岸通りV2.mp3">海岸通りV2</option>
+                <option value="./melo/九月の風V1.mp3">九月の風V1</option>
+                <option value="./melo/九月の風V2.mp3">九月の風V2</option>
+                <option value="./melo/古いオルゴール.mp3">古いオルゴール</option>
+                <option value="./melo/公園の楓.mp3">公園の楓</option>
+                <option value="./melo/公園通り.mp3">公園通り</option>
+                <option value="./melo/秋桜V1.mp3">秋桜V1</option>
+                <option value="./melo/秋桜V2.mp3">秋桜V2</option>
+                <option value="./melo/春待ち風V1.mp3">春待ち風V1</option>
+                <option value="./melo/春待ち風V2.mp3">春待ち風V</option>
+                <option value="./melo/小川のせせらぎV1.mp3">小川のせせらぎV1</option>
+                <option value="./melo/小川のせせらぎV2.mp3">小川のせせらぎV2</option>
+                <option value="./melo/新たな季節.mp3">新たな季節</option>
+                <option value="./melo/雪解け間近V1.mp3">雪解け間近V1</option>
+                <option value="./melo/雪解け間近V2.mp3">雪解け間近V2</option>
+                <option value="./melo/線路の彼方.mp3">線路の彼方</option>
+                <option value="./melo/風と共にV1.mp3">風と共にV1</option>
+                <option value="./melo/風と共にV2.mp3">風と共にV2</option>
+                <option value="./melo/木々の目覚めV1.mp3">木々の目覚めV1</option>
+                <option value="./melo/木々の目覚めV2.mp3">木々の目覚めV2</option>
+                <option value="./melo/夏色の時間 _A.mp3">夏色の時間(A自作)</option>
+                <option value="./melo/夏色の時間 _G.mp3">夏色の時間(G自作)</option>
+                <option value="./melo/Twinkle Twinkle_v1_nonrilz.mp3">Twinkle Twinkle V1</option>
+                <option value="./melo/Twinkle Twinkle_v2_nonrilz.mp3">Twinkle Twinkle V2</option>
+            </select></p>
+            <p>戸閉音源 <a href="http://text-to-speech.imtranslator.net/speech.asp?dir=ja">※自動音声の使用元</a><br>
+            <select id="bansen">
+              <option value="./sound/1bansen.mp3">1番線</option>
+              <option value="./sound/2bansen.mp3">2番線</option>
+              <option value="./sound/3bansen.mp3">3番線</option>
+              <option value="./sound/4bansen.mp3">4番線</option>
+              <option value="./sound/5bansen.mp3">5番線</option>
+              <option value="./sound/6bansen.mp3">6番線</option>
+              <option value="./sound/7bansen.mp3">7番線</option>
+              <option value="./sound/8bansen.mp3">8番線</option>
+              <option value="./sound/9bansen.mp3">9番線</option>
+              <option value="./sound/10bansen.mp3">10番線</option>
+              <option value="https://youk720.github.io/melo_work/sound/%E3%83%88%E3%82%99%E3%82%A2%E3%81%8B%E3%82%99%E9%96%89%E3%81%BE%E3%82%8A%E3%81%BE%E3%81%99%E6%89%8B%E8%8D%B7%E7%89%A9.mp3">ドアが閉まります手荷物</option>
+              <option value="https://youk720.github.io/melo_work/sound/ドアが閉まりますご注意.mp3">ドアが閉まりますご注意</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/1_1_1.mp3">tuda1番線</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/2.mp3">tuda2番線(実録)</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/3_1.mp3">tuda3番線(実録)</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/4.mp3">tuda4番線(実録)</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/4_1.mp3">tuda4番線(CD音源)</option>
+              <option value="https://youk720.github.io/melo_work/melo/tuda/5_1.mp3">tuda5番線(実録)</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/1.mp3">saki;1番線</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/1_jvc.mp3">saki;1番線_jvc</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/2_jvc.mp3">saki;2番線_jvc</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/2.mp3">saki;2番線(ユニぺ小丸)</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/2_voss.mp3">saki;2番線(小VOSS)</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/3_1.mp3">saki;3番線</option>
+              <option value="https://youk720.github.io/melo_work/melo/saki/4_1.mp3">saki;4番線</option>
+            </select>
+            <!-- 音源自動選択部分 -->
+            <p id="melo_title">メロディ音源手動入力</p>
+            <textarea id="melo_input" size='20'></textarea>
+            <br>
+            <p id="door_title">ドア閉音源手動入力</p>
+            <textarea id="door_input" size="20"></textarea>
+            <br>
+            <button id="custam_sw" style='font-size:10px;' class="btn btn btn-primary text-center"><strong> 決定</strong></button>
+            <br>
 
-      <br>
-      <!-- <audio class="melo" id="melo" preload="auto">
-        <source type="audio/mp3">
-        </audio> -->
+            <br>
+          </td>
+            <!-- <audio class="melo" id="melo" preload="auto">
+              <source type="audio/mp3">
+              </audio> -->
+            <td>
+            <button id="on" style='font-size:38px;' class="btn btn-danger btn-lg  text-center"><strong> ON </strong></button>
+            <br>
+            <button id="off" style='font-size:30px;' class="btn btn-success btn-lg"><strong>OFF</strong></button>
+            <br>
+            <button id="first_off" style='font-size:25px;' class="btn btn-success btn-lg"><strong>Start</strong></button>
+            <br>
 
-      <button id="on" style='font-size:38px;' class="btn btn-danger btn-lg  text-center"><strong> ON </strong></button>
-      <br>
-      <button id="off" style='font-size:30px;' class="btn btn-success btn-lg"><strong>OFF</strong></button>
-      <br>
-      <br>
-      <input type="radio" name="sw_mode" value="0" checked>通常
-      <input type="radio" name="sw_mode" value="1">立川式
-      <input type="radio" name="sw_mode" value="2">ノン被り式
-      <br>
-      <input type="radio" name="on_mode" value="0" checked>普通
-      <input type="radio" name="on_mode" value="1">戸閉放送ストップ
-      <br>
-      <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
-      <br>
-      <div class="text-info"><strong>
-      <span>再生時間/メロディ合計時間</span>
-      <br>
-      <span id="time"></span></strong></div>
-      <br>
-      <div class="text-">
-      <p id="mv_value" value="">メロディ用ボリューム</p>
-      <input type="range" id="melo_volume" value="50" min="0" max="100">
-      <br>
-      <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
-      <input type="range" id="door_volume" value="50" min="0" max="100">
-      <br>
-      <p id="smoking_value" value="">禁煙音源ボリューム</p>
-      <input type="range" id="smoking_volume" value="50" min="0" max="100">
+            <button id="smoking" class="btn btn-primary" onclick="smoking()">禁煙放送</button>
+            <br>
+            <div class="text-info"><strong>
+            <span>再生時間/メロディ合計時間</span>
+            <br>
+            <span id="time"></span></strong></div>
+            </td>
+
+          
+
+
+          <td>
+                <input type="radio" name="sw_mode" value="0" checked>通常
+                <input type="radio" name="sw_mode" value="1">立川式
+                <input type="radio" name="sw_mode" value="2">ノン被り式
+                <br>
+                <input type="radio" name="on_mode" value="0" checked>普通
+                <input type="radio" name="on_mode" value="1">放送ストップ
+          </td>
+
+          <td>
+              <p id="mv_value" value="">メロディ用ボリューム</p>
+              <input type="range" id="melo_volume" value="50" min="0" max="100">
+              <p id="dov_value" value="">ドア閉め放送用ボリューム</p>
+              <input type="range" id="door_volume" value="50" min="0" max="100">
+              <p id="smoking_value" value="">禁煙音源ボリューム</p>
+              <input type="range" id="smoking_volume" value="50" min="0" max="100">
+          </td>
+          </tr>
+        </table>
+        <script type="text/javascript" src="melo.js"></script>
       </div>
-
-      <script type="text/javascript" src="melo.js"></script>
     </div>
   </div>
-
-<!-- 電光掲示板風再現タブ -->
-    <div class="tab-pane" id="ui">
-
-      <!-- <table class="table">
-        <thead>
-          <tr>
-            <th>種別</th>
-            <th>愛称</th>
-            <th>時間</th>
-            <th>行先</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th id="kind_val"></th>
-            <th id="name_val">あかぎ13号</th>
-            <th>19:20</th>
-            <th id="dest_val">深谷</th>
-          </tr>
-        </tbody>
-      </table> -->
-
-    </div>
-
-  </div>
-</div>
 
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

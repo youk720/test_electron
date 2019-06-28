@@ -12,6 +12,7 @@ $("#melo_select").change(function(){
 let bansen = new Audio("./sound/1bansen.mp3");
 $("#bansen").change(function(){
   bansen.src = $("#bansen").val();
+  console.log("now bansen: " + bansen.src);
 });
 // 自動音声つぎはぎ用の別音声
 let dor_cls = new Audio("./sound/door_close.mp3");
@@ -64,67 +65,75 @@ function off_1(){
     if (bansen.src.endsWith("bansen.mp3")) {
       dor_cls.play();
     }
+    if (start_sw === 1) {
+      setTimeout(on, 400);
+      setTimeout(on_door, 400);
+      setTimeout(function(){
+        melo.loop = false
+        console.log(melo.loop)
+      }, 500);
+      start_sw = 0;
+    }
+
   });
 }
+
+// メロディ終わりのフラグ
+let melo_over = 0;
 
 // on操作時の処理を関数定義
 function on(){
   $(function(){
-    // 禁煙放送強制停止
-    if(typeof(bansen.currentTime) != 'undefined'){
-    sm_vi.pause();
-  }
+    
     melo.play();
     melo.loop = true;
     console.log("melody's loop is " + melo.loop);
 
   })
 }
+
 //off関数を新たに定義しました。しとかないとoffクリックしたり,dキークリックした時の処理文が長くなってめんどくなる
 function off(){
-  $(function(){
     //以下は通常モードの処理
     if($('[name=sw_mode][value=0]').prop('checked')){
-
-      if(typeof($("#melo").currentTime) != 'undefined'){
+      if(typeof(melo.currentTime) != 'undefined'){
       bansen.currentTime = 0;
     }
     melo.pause();
     melo.currentTime = 0;
     melo.loop = false;
-
-      setTimeout(off_1, 1780);
+    setTimeout(off_1, 1780);
 
     console.log("melody's loop is " + melo.loop);
     }
     //以下は立川モードの処理
     else if($('[name=sw_mode][value=1]').prop('checked')){
-      // if(typeof(door.currentTime) != 'undefined'){
-      // sm_vi.pause();
-      // }
-
       if(typeof(melo.currentTime) != 'undefined'){
       bansen.currentTime = 0;
-    }
-    melo.loop = false;
-    setTimeout(off_1, 1780);
-    // door.play();
-    console.log("melody's loop is " + melo.loop);
+      }
+      melo.loop = false;
+      setTimeout(off_1, 200);
+      // door.play();
+      console.log("melody's loop is " + melo.loop);
     }
     // 別モード
     else if($('[name=sw_mode][value=2]').prop('checked')){
-      if(typeof($("#melo").currentTime) != 'undefined'){
+      if(typeof(melo.currentTime) != 'undefined'){
       bansen.currentTime = 0;
-    }
+      }
       melo.loop = false;
-      $(melo).on("ended", function(){
-        setTimeout(off_1, 500);
-        console.log("melody's loop is " + melo.loop);
-      });
+      console.log("melody's loop is " + melo.loop);
     }
-  });
   // $("#on").removeClass().addClass("btn btn-danger btn-lg  text-center");
 }
+
+// メロディが流れ終わってからの処理
+$(melo).on("ended", function(){
+  if ($('[name=sw_mode][value=2]').prop('checked')) {
+    setTimeout(off_1, 1780);
+    
+  }
+});
 
 //戸閉放送流れてる時にonを押したら止める処理の関数定義
 function on_door(){
@@ -133,14 +142,14 @@ function on_door(){
       return;
     };
     if($('[name=on_mode][value=1]').prop('checked')){
-    // if(typeof($("#door").currentTime) != 'undefined'){
-      // door.pause();
-      // door.currentTime = 0;
       bansen.pause();
       bansen.currentTime = 0;
       dor_cls.pause();
       dor_cls.currentTime = 0;
-    // }
+      // 禁煙放送強制停止
+      if(typeof(bansen.currentTime) != 'undefined'){
+        sm_vi.pause();
+      }
     }
   });
 }
@@ -154,10 +163,16 @@ function time(){
       let dm = ( '0' + Math.floor( melo.duration / 60 ) ) .slice( -2 );
       let ds = ( '0' + Math.floor( melo.duration % 60 ) ) .slice( -2 );
       $("#time").html(m + ":" + s + " / " + dm + ":" + ds);
-    }, 1);
+    }, 100);
   });
 }
-time();
+// $(melo).on('play', function(){
+//   time();
+// });
+time()
+// $(melo.src).change(function(){
+//   time();
+// })
 
 function smoking(){
   $(function(){
@@ -171,7 +186,7 @@ function smoking(){
   // $("#off").removeClass().addClass("btn btn-success btn-lg");
   }
 }
-
+/*
 setInterval(function(){
   smoking();
   $("#smoking").removeClass().addClass("btn btn btn-default");
@@ -180,6 +195,8 @@ setInterval(function(){
     $("#smoking").removeClass().addClass("btn btn btn-primary");
   }
 }, 60000);
+*/
+
 
 $('#smoking').on('click', function(f){
   smoking();
@@ -212,6 +229,13 @@ $('body').on("keydown", function (m){
     off();
   }
 });
+
+let start_sw;
+$("#first_off").on('click', function(){
+  start_sw = 1;
+  off_1();
+})
+
 
 //メロディ音源ボリューム制御
 let volume = $("#melo_volume");
