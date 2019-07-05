@@ -31,16 +31,16 @@
           <td>
               <p>種別</p>
               <select id="kind">
-              <option value="./sound/futsu.mp3">普通</option>
-              <option value="各駅停車">各駅停車</option>
-              <option value="快速">快速</option>
-              <option value="急行">急行</option>
-              <option value="特急">特急</option>
-              <option value="団体">団体</option>
-              <option value="回送">回送</option>
-              <option value="貨物">貨物</option>
+                  <option value="1">普通</option>
+                  <option value="0">各駅停車</option>
+                  <option value="2">快速</option>
+                  <option value="13">急行</option>
+                  <option value="14">特急</option>
+                  <option value="9">団体</option>
+                  <option value="10">回送</option>
+                  <option value="16">おはようライナー</option>textarea
               </select>
-              <p>愛称</p>
+              <!-- <p>愛称</p>
               <select id="name">
                 <option value="">あかぎ</option>
                 <option value="">スワローあかぎ</option>
@@ -54,57 +54,50 @@
                 <option value=""></option>
                 <option value=""></option>
                 <option value=""></option>
-              </select>
+              </select> -->
               <p>行き先</p>
               <select id="destination">
-                <option value="0">深谷</option>
-                <option value="1">籠原</option>
-                <option value="">熊谷</option>
-                <option value="2">高崎</option>
-                <option value="14">新前橋</option>
-                <option value="">前橋</option>
-                <option value="">水上</option>
-                <option value="">桐生</option>
-                <option value="">横川</option>
-                <option value="">越後湯沢</option>
-                <option value="">長岡</option>
-                <option value="">新潟</option>
-                <option value="">鴻巣</option>
-                <option value="">桶川</option>
-                <option value="">北本</option>
-                <option value="3">上尾</option>
-                <option value="">宮原</option>
-        
-                <option value="4">野崎</option>
-                <option value="5">小金井</option>
-                <option value="6">宇都宮</option>
-                <option value="7">矢板</option>
-                <option value="8">白岡</option>
-        
-                <option value="9">大宮</option>
-                <option value="10">上野</option>
-                <option value="11">東京</option>
-                <option value="15">品川</option>
-                <option value="16">新宿</option>
-                <option value="17">渋谷</option>
-                <option value="18">池袋</option>
-                <option value="19">大崎</option>
-        
-                <option value="">横浜</option>
-                <option value="">大船</option>
-                <option value="">平塚</option>
-                <option value="12">国府津</option>
-                <option value="13">小田原</option>
-                <option value="">熱海</option>
-                <option value="">沼津</option>
-                <option value="">三島</option>
-        
-                <option value="">成田</option>
-        
+                  <option value="10">池袋</option>
+                  <option value="11">日暮里</option>
+                  <option value="12">渋谷</option>
+                  <option value="13">新宿</option>
+                  <option value="14">品川</option>
+                  <option value="15">田端</option>
+                  <option value="16">東京</option>
+                  <option value="17">上野</option>
+                  <option value="18">大崎</option>
+                  <option value="19">籠原</option>
+                  <option value="20">深谷</option>
+                  <option value="21">高崎</option>
               </select>
           </td>
           <td>
-          <span id="playlist_out"></span>
+          <textarea id="playlist_out"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>路線名</p>
+            <select id="line">
+              <option value="0">湘南新宿ライン</option>
+              <option value="1">上野東京ライン</option>
+              <option value="4">高崎線</option>
+              <option value="5">宇都宮線</option>
+              <option value="6">東海道線</option>
+              <option value="7">横須賀線</option>
+              <option value="8">中央線</option>
+              <option value="9">常磐線</option>
+              <option value="10">京葉線</option>
+              <option value="11">総武線</option>
+              <option value="12">武蔵野線</option>
+              <option value="13">山手線</option>
+              <option value="14">京浜東北線</option>
+              <option value="15">京浜東北・根岸線</option>
+              <option value="16">川越線</option>
+              <option value="17">埼京線</option>
+              <option value="18">りんかい線</option>
+              <option value="19">相鉄線</option>
+            </select>
           </td>
         </tr>
       </table>
@@ -113,6 +106,7 @@
       <button id="info" class="btn btn-success btn-lg"><strong>予告</strong></button>
       <button id="arriv" class="btn btn-danger btn-lg"><strong>接近</strong></button>
       <button id="atos_start" class="btn btn-primary btn-lg"><strong>再生</strong></button>
+      <script type="text/javascript" src="atos_sounds.js"></script>
       <script type="text/javascript" src="atos_2.js"></script>
     </div>
 <!-- 発車メロディタブ -->

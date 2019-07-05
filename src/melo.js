@@ -59,6 +59,8 @@ function off_1(){
   // off操作時の禁煙放送停止
   if(typeof(bansen.currentTime) != 'undefined'){
   sm_vi.pause();
+  atos1.pause();
+  atos2.pause();
   }
   bansen.play();
   $(bansen).on('ended', function(){
